@@ -1,0 +1,25 @@
+@if(user$ | async; as user){
+<ion-content [fullscreen]="true" color="medium">
+
+  <ion-card class="profile-content">
+
+    <div align="center" class="image">
+      <ion-avatar>
+        <img src="https://thispersondoesnotexist.com/" />
+      </ion-avatar>
+    </div>
+
+    <ion-item lines="none" class="profile">
+      <ion-label class="ion-text-center">
+        <ion-text color="light">{{ user.firstName + ' ' + user.lastName}}</ion-text>
+        <p>
+          <ion-text color="medium">{{ user.address }}</ion-text>
+        </p>
+      </ion-label>
+    </ion-item>
+
+  </ion-card>
+</ion-content>
+} @else {
+Not found!
+}
