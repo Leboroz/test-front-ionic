@@ -10,4 +10,17 @@
       <ion-title size="large">student</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <app-search [data]="users$" (updateDataEvent)="updateStudents($event)" />
+
+  <div class="card-container">
+    @if(users$ | async; as users) {
+    @for(user of users; track user.id){
+    <ion-button fill="clear" [href]="'/tabs/students/' + user.id">
+      <app-card [title]="user.firstName + ' ' + user.lastName" [subTitle]="user.address"
+        [dateOfBirth]="user.dateOfBirth" [address]="user.address" />
+    </ion-button>
+    }
+    }
+  </div>
 </ion-content>

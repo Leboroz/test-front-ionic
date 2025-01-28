@@ -17,4 +17,4 @@ import { ClassesPage } from './classes.page';
   ],
   declarations: [ClassesPage]
 })
-export class ClassesPageModule {}
+export class ClassesPageModule { }

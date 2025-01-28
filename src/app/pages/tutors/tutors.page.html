@@ -10,4 +10,16 @@
       <ion-title size="large">tutors</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <app-segments [data]="tutors$" (updateDataEvent)="updateTutors($event)" segmentName="speciality"
+    [segments$]="specialities" />
+
+  <div class="card-container">
+    @if(tutors$ | async; as tutors) {
+    @for(tutors of tutors; track tutors.id){
+    <app-card [title]="tutors.firstName + ' ' + tutors.lastName" [subTitle]="tutors.email"
+      [dateOfBirth]="tutors.dateOfBirth" [address]="tutors.email" />
+    }
+    }
+  </div>
 </ion-content>

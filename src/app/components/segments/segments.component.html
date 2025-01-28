@@ -1,0 +1,9 @@
+<ion-segment [scrollable]="true" [value]="currentSegment">
+  @if(segments$ | async; as segments){
+  @for(segment of segments; track $index){
+  <ion-segment-button (click)="onClickSpecialty($event)" [value]="segment">
+    <ion-label>{{segment}}</ion-label>
+  </ion-segment-button>
+  }
+  }
+</ion-segment>
