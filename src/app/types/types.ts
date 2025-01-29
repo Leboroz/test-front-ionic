@@ -30,16 +30,6 @@ export interface IStudentResponse {
 
 export interface IClassesResponse {
   id: string;
-  first_name: string;
-  last_name: string;
-  date_of_birth: string;
-  address: string;
-  created_at: string;
-  updated_at: string;
-}
-
-interface Session {
-  id: string;
   tutor_id: string;
   student_id: string;
   date: string;

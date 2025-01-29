@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { StudentPageRoutingModule } from './student-routing.module';
 
 import { StudentPage } from './student.page';
-import { CardComponent } from 'src/app/components/card/card.component';
 import { SearchComponent } from 'src/app/components/search/search.component';
 
 @NgModule({
@@ -16,7 +15,6 @@ import { SearchComponent } from 'src/app/components/search/search.component';
     FormsModule,
     IonicModule,
     StudentPageRoutingModule,
-    CardComponent,
     SearchComponent,
     AsyncPipe,
   ],

@@ -17,8 +17,36 @@
   <div class="card-container">
     @if(tutors$ | async; as tutors) {
     @for(tutors of tutors; track tutors.id){
-    <app-card [title]="tutors.firstName + ' ' + tutors.lastName" [subTitle]="tutors.email"
-      [dateOfBirth]="tutors.dateOfBirth" [address]="tutors.email" />
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{tutors.firstName + ' ' + tutors.lastName}}</ion-card-title>
+        <ion-card-subtitle>{{tutors.email}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <ion-thumbnail slot="start">
+              <ion-icon size="large" name="calendar-outline"></ion-icon>
+            </ion-thumbnail>
+            <ion-label>{{tutors.dateOfBirth | date}}</ion-label>
+          </ion-item>
+
+          <ion-item>
+            <ion-thumbnail slot="start">
+              <ion-icon size="large" name="navigate-circle-outline"></ion-icon>
+            </ion-thumbnail>
+            <ion-label>{{tutors.nationality}}</ion-label>
+          </ion-item>
+
+          <ion-item>
+            <ion-thumbnail slot="start">
+              <ion-icon size="large" name="sparkles-outline"></ion-icon>
+            </ion-thumbnail>
+            <ion-label>{{tutors.speciality}}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
     }
     }
   </div>

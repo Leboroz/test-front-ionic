@@ -1,13 +1,35 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>classes</ion-title>
+    <ion-title>Classes</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">classes</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-list>
+    <ion-item>
+      <ion-select (ionChange)="onChangeFilter($event)" label="Filter by Student" placeholder="Select student"
+        [value]="value">
+        <ion-select-option value="">None</ion-select-option>
+        @if(users$ | async; as users){
+        @for(user of users; track user.id){
+        <ion-select-option [value]="user.id">{{ user.firstName + ' ' + user.lastName }}</ion-select-option>
+        }
+        }
+      </ion-select>
+      {{value}}
+    </ion-item>
+  </ion-list>
+  <ion-text color="light">{{value}}</ion-text>
+  <div class="card-container">
+    @if(classes$ | async; as classes){
+    @for(class of classes; track class.id){
+    <app-reservation [date]="class.date" [speciality]="class.tutor.speciality"
+      [title]="class.student.firstName + ' + ' + class.tutor.firstName"
+      [duration]="class.endTime.valueOf() - class.startTime.valueOf()" />
+    }
+    @if(classes.length === 0) {
+    <ion-text>User has no class</ion-text>
+    }
+    }
+  </div>
 </ion-content>

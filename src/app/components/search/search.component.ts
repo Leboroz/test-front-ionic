@@ -2,6 +2,8 @@ import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { IonSearchbar } from '@ionic/angular/standalone';
 import { map } from 'rxjs';
 
+// TODO: convert into sharable module instead
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',

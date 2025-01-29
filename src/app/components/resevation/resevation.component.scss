@@ -1,0 +1,116 @@
+@use 'src/theme/mixins';
+
+$border-radius: 2rem;
+$padding: 2rem;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  position: relative;
+  width: fit-content;
+
+  *{
+    margin: 0;
+  }
+
+  &-header {
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    transform: translateY(1px);
+    flex: 1 1 auto;
+
+    &-date {
+      background-color: #fff;
+      color: #000;
+      aspect-ratio: 1/1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content:center;
+      border-bottom-right-radius: $border-radius;
+      border-top-left-radius: $border-radius;
+      border-top: var(--ion-color-secondary) solid;
+      border-left: var(--ion-color-secondary) solid;
+      align-self: end;
+      position: relative;
+      transform-style: preserve-3d;
+      z-index: -1;
+      
+      .date {
+        &1 {
+          font-size: 1.1rem;
+        }
+
+        &1 {
+          font-size: 1rem;
+        }
+      }
+
+      &::before {
+        content: '';
+        width: 100%;
+        position: absolute;
+        aspect-ratio:1;
+        top: 50%;
+        left: 50%;
+        background-color: var(--ion-color-secondary);
+        transform: translateZ(-1px);
+      }
+    }
+
+    &-content{
+      background-color: var(--ion-color-secondary);
+      border-top-right-radius: $border-radius;
+      border-top-left-radius: $border-radius;
+      padding: $padding $padding 0 $padding;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      width: 65vw;
+      @include mixins.respond-above(md){
+        width: 35vw;
+      }
+
+      @include mixins.respond-above(lg){
+        width: 15vw;
+      }
+
+      h3 {
+        font-size: 1rem;
+        font-weight: 100;
+      }
+      h2 {
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+    }
+  }
+
+  &-duration {
+    background-color: var(--ion-color-secondary);
+    border-top-left-radius: $border-radius;
+    z-index: 5;
+    text-align: center;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  &-thumbnail {
+    flex: 1 1 auto;
+    transform: translateY(-1px);
+    background-color: var(--ion-color-secondary);
+    border-bottom-right-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    figure {
+      padding: 0.5rem;
+      img {
+        border-radius: 50%;
+      }
+    }
+  }
+}

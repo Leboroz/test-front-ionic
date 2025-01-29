@@ -13,6 +13,7 @@ export class Person extends Entity {
     this._dateOfBirth = dateOfBirth;
   }
 
+  // TODO: Make fullname function to return firstname + lastname
   public get firstName(): string {
     return this._firstName;
   }

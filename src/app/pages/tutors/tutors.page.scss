@@ -1,5 +1,24 @@
+@use 'src/theme/mixins';
 
 .card-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+
+  ion-card {
+    width: 100%;
+
+    @include mixins.respond-above(md){
+      width: 45%;
+    }
+
+    @include mixins.respond-above(lg){
+      width: 30%;
+    }
+    ion-thumbnail{
+      display: flex;
+      align-items: center;
+    }
+  }
+  
 }

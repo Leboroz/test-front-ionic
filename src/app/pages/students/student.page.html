@@ -7,20 +7,23 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">student</ion-title>
+      <ion-title size="large">Student</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <app-search [data]="users$" (updateDataEvent)="updateStudents($event)" />
 
   <div class="card-container">
+  </div>
+  <ion-list [inset]="true">
     @if(users$ | async; as users) {
     @for(user of users; track user.id){
-    <ion-button fill="clear" [href]="'/tabs/students/' + user.id">
-      <app-card [title]="user.firstName + ' ' + user.lastName" [subTitle]="user.address"
-        [dateOfBirth]="user.dateOfBirth" [address]="user.address" />
-    </ion-button>
+    <ion-item>
+      <ion-button fill="clear" [href]="'/tabs/students/' + user.id">
+        <ion-label>{{user.firstName + ' ' + user.lastName}}</ion-label>
+      </ion-button>
+    </ion-item>
     }
     }
-  </div>
+  </ion-list>
 </ion-content>

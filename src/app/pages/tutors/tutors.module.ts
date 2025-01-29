@@ -7,8 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { TutorsPageRoutingModule } from './tutors-routing.module';
 
 import { TutorsPage } from './tutors.page';
-import { SearchComponent } from 'src/app/components/search/search.component';
-import { CardComponent } from 'src/app/components/card/card.component';
 import { SegmentsComponent } from 'src/app/components/segments/segments.component';
 
 @NgModule({
@@ -17,8 +15,6 @@ import { SegmentsComponent } from 'src/app/components/segments/segments.componen
     FormsModule,
     IonicModule,
     TutorsPageRoutingModule,
-    SearchComponent,
-    CardComponent,
     SegmentsComponent,
   ],
   declarations: [TutorsPage]
